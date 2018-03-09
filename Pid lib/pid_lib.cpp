@@ -1,15 +1,23 @@
+/*
+Biblioteka za kontrolu brzine motora koriscenjem PID algoritma na robotu za Eurobot takmicenje.
+Koristimo omnidirekcione tockove.
+
+by Nemanja Zaric
+ */
+
 #include "pid_lib.h"
 
-boolean debug = 0;
+boolean debug = 0;                //ako se setuje na serijskom portu ce se ispisivati brzina motora i pwm koji zelimo da setujemo
 
-unsigned long tren_v_0 = 0;
-unsigned long pre_v_0 = 0;
-int integral_0 = 0;
-int derivative_0 = 0;
-int propo_0 = 0;
-unsigned long greska_0 = 0;
-unsigned long pre_greska_0 = 0;
-int pwm_set_0 = 0;
+                                  //slede promenljive za svaki motor posebno
+unsigned long tren_v_0 = 0;       //trenutna brzina motora 0 ili MOTOR_NS_L
+unsigned long pre_v_0 = 0;        //prethodna brzina
+int integral_0 = 0;               //integralni deo greske
+int derivative_0 = 0;             //izvodni deo greske
+int propo_0 = 0;                  //proporcionalni deo greske
+unsigned long greska_0 = 0;       //greska u odnosu na setpoint
+unsigned long pre_greska_0 = 0;   //prethodna greska
+int pwm_set_0 = 0;                //pwm koji treba setovati
 
 unsigned long tren_v_1 = 0;
 unsigned long pre_v_1 = 0;
@@ -38,8 +46,11 @@ unsigned long greska_3 = 0;
 unsigned long pre_greska_3 = 0;
 int pwm_set_3 = 0;
 
-int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){
+//int mapiraj_pwm_na_brzinu(int pwm) ovo nam treba da bi ovaj pid radio kako valja (i obrnuto brzina na pwm) ja mislim? xD
+//slede funkcije za kontrolu brzine za svaki motor ponaosob
 
+int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){   //u sustini ovo je trenutno pid samo za brzinu
+                                                                //moramo da smislimo kako da mapiramo brzinu na pwm i obrnuto :D
   greska_0=setpoint_v-tren_v_0;
   propo_0=greska_0;
   integral_0+=greska_0;
