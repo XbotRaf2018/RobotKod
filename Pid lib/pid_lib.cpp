@@ -46,11 +46,7 @@ unsigned long greska_3 = 0;
 unsigned long pre_greska_3 = 0;
 int pwm_set_3 = 0;
 
-//int mapiraj_pwm_na_brzinu(int pwm) ovo nam treba da bi ovaj pid radio kako valja (i obrnuto brzina na pwm) ja mislim? xD
-//slede funkcije za kontrolu brzine za svaki motor ponaosob
-
-int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){   //u sustini ovo je trenutno pid samo za brzinu
-                                                                //moramo da smislimo kako da mapiramo brzinu na pwm i obrnuto :D
+int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){   //pid za brzinu za svaki motor ponaosob, mora da se nasteluju kp,kd i ki
   greska_0=setpoint_v-tren_v_0;
   propo_0=greska_0;
   integral_0+=greska_0;
