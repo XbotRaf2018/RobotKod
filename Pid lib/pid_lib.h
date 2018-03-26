@@ -7,8 +7,8 @@ by Nemanja Zaric
 
 #include "Arduino.h"
 
-#ifndef PID_LIB.H
-#define PID_LIB.H
+#ifndef PID_LIB_H
+#define PID_LIB_H
 
 #define MOTOR_NS_L 0		//konstante za odabir motora (ovde redudantno verovatno da se prebaci u drugi lib)
 #define MOTOR_NS_R 1

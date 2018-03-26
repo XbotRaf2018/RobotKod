@@ -56,12 +56,12 @@ int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){   //pid za brzinu 
 
   if(debug)
   {
-	  Serial.print('Trenutna brzina MOTOR_NS_L: ');
-	  Serial.print(tren_v_0);
-	  Serial.print(' || ');
-	  Serial.print('Pwm koji se setuje na MOTOR_NS_L: ');
-	  Serial.print(pwm_set_0);
-	  Serial.println(' || ');
+  	  Serial.print("Trenutna brzina MOTOR_NS_L: ");
+  	  Serial.print(tren_v_0);
+  	  Serial.print(" || ");
+  	  Serial.print("Pwm koji se setuje na MOTOR_NS_L: ");
+  	  Serial.print(pwm_set_0);
+  	  Serial.println(" || ");
   }
 
   if(pwm_set_0 > MAX_PWM){
@@ -88,12 +88,12 @@ int pid_const_v_1(int setpoint_v,float kp,float kd,float ki){
 
   if(debug)
   {
-	  Serial.print('Trenutna brzina MOTOR_NS_R: ');
-	  Serial.print(tren_v_1);
-	  Serial.print(' || ');
-	  Serial.print('Pwm koji se setuje na MOTOR_NS_R: ');
-	  Serial.print(pwm_set_1);
-	  Serial.println(' || ');
+  	  Serial.print("Trenutna brzina MOTOR_NS_R: ");
+  	  Serial.print(tren_v_1);
+  	  Serial.print(" || ");
+  	  Serial.print("Pwm koji se setuje na MOTOR_NS_R: ");
+  	  Serial.print(pwm_set_1);
+  	  Serial.println(" || ");
   }
 
   if(pwm_set_1 > MAX_PWM){
@@ -120,12 +120,12 @@ int pid_const_v_2(int setpoint_v,float kp,float kd,float ki){
 
   if (debug)
   {
-  	Serial.print('Trenutna brzina MOTOR_EW_L: ');
-  	Serial.print(tren_v_2);
-  	Serial.print(' || ');
-  	Serial.print('Pwm koji se setuje na MOTOR_EW_L: ');
-  	Serial.print(pwm_set_2);
-  	Serial.println(' || ');
+   	Serial.print("Trenutna brzina MOTOR_EW_L: ");
+   	Serial.print(tren_v_2);
+   	Serial.print(" || ");
+   	Serial.print("Pwm koji se setuje na MOTOR_EW_L: ");
+   	Serial.print(pwm_set_2);
+   	Serial.println(" || ");
   }
 
   if(pwm_set_2 > MAX_PWM){
@@ -152,12 +152,12 @@ int pid_const_v_3(int setpoint_v,float kp,float kd,float ki){
 
   if (debug)
   {
-  	Serial.print('Trenutna brzina MOTOR_EW_L: ');
-  	Serial.print(tren_v_3);
-  	Serial.print(' || ');
-  	Serial.print('Pwm koji se setuje na MOTOR_EW_L: ');
-  	Serial.print(pwm_set_3);
-  	Serial.println(' || ');
+   	Serial.print("Trenutna brzina MOTOR_EW_L: ");
+   	Serial.print(tren_v_3);
+   	Serial.print(" || ");
+   	Serial.print("Pwm koji se setuje na MOTOR_EW_L: ");
+   	Serial.print(pwm_set_3);
+   	Serial.println(" || ");
   }
 
   if(pwm_set_3 > MAX_PWM){
