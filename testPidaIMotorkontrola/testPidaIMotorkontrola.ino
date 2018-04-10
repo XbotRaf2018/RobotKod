@@ -1,5 +1,6 @@
 #include "pid_lib.h"
 #include "MotorControl.h"
+#include "SpeedControl.h"
 int d=1000;
 void setup() {
   // put your setup code here, to run once:
@@ -9,37 +10,39 @@ void setup() {
 }
 
 void loop() {
+  citaj_enkoder_NS_L();
+  Serial.println(enkoder_NS_L);
 
   vozi_napred(100);
-  Serial.println("Napred");
+  //Serial.println("Napred");
   delay(d);
 
   vozi_nazad(100);
-  Serial.println("Nazad");
+  //Serial.println("Nazad");
   delay(d);
 
   vozi_levo(100);
-  Serial.println("Levo");
+  //Serial.println("Levo");
   delay(d);
 
   vozi_desno(100);
-  Serial.println("Desno");
+  //Serial.println("Desno");
   delay(d);
 
   vozi_dijagonalno_SE(100);
-  Serial.println("Dij SE");
+  //Serial.println("Dij SE");
   delay(d);
 
   vozi_dijagonalno_NE(100);
-  Serial.println("Dij NE");
+  //Serial.println("Dij NE");
   delay(d);
 
   vozi_dijagonalno_SW(100);
-  Serial.println("Dij SW");
+  //Serial.println("Dij SW");
   delay(d);
 
   vozi_dijagonalno_NW(100);
-  Serial.println("Dij NW");
+  //Serial.println("Dij NW");
   delay(d);
 
 }
