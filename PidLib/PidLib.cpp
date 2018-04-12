@@ -5,9 +5,9 @@ Koristimo omnidirekcione tockove.
 by Nemanja Zaric
  */
 
-#include "pid_lib.h"
+#include "PidLib.h"
 
-boolean debug = 0;                //ako se setuje na serijskom portu ce se ispisivati brzina motora i pwm koji zelimo da setujemo
+boolean debug_pid = 0;                //ako se setuje na serijskom portu ce se ispisivati brzina motora i pwm koji zelimo da setujemo
 
                                   //slede promenljive za svaki motor posebno
 float tren_v_0 = 0;               //trenutna brzina motora 0 ili MOTOR_NS_L
@@ -54,7 +54,7 @@ int pid_const_v_0(float setpoint_v,float kp,float kd,float ki){   //pid za brzin
 
   pwm_set_0=(kp*greska_0)+(ki*integral_0)+(kd*derivative_0);
 
-  if(debug)
+  if(debug_pid)
   {
   	  Serial.print("Trenutna brzina MOTOR_NS_L: ");
   	  Serial.print(tren_v_0);
@@ -86,7 +86,7 @@ int pid_const_v_1(float setpoint_v,float kp,float kd,float ki){
 
   pwm_set_1=(kp*greska_1)+(ki*integral_1)+(kd*derivative_1);
 
-  if(debug)
+  if(debug_pid)
   {
   	  Serial.print("Trenutna brzina MOTOR_NS_R: ");
   	  Serial.print(tren_v_1);
@@ -118,7 +118,7 @@ int pid_const_v_2(float setpoint_v,float kp,float kd,float ki){
 
   pwm_set_2=(kp*greska_2)+(ki*integral_2)+(kd*derivative_2);
 
-  if (debug)
+  if (debug_pid)
   {
    	Serial.print("Trenutna brzina MOTOR_EW_L: ");
    	Serial.print(tren_v_2);
@@ -150,7 +150,7 @@ int pid_const_v_3(float setpoint_v,float kp,float kd,float ki){
 
   pwm_set_3=(kp*greska_3)+(ki*integral_3)+(kd*derivative_3);
 
-  if (debug)
+  if (debug_pid)
   {
    	Serial.print("Trenutna brzina MOTOR_EW_L: ");
    	Serial.print(tren_v_3);

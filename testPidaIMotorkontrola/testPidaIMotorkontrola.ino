@@ -1,4 +1,4 @@
-#include "pid_lib.h"
+#include "PidLib.h"
 #include "MotorControl.h"
 #include "SpeedControl.h"
 #include <Encoder.h>

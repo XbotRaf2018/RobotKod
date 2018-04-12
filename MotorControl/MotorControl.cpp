@@ -6,6 +6,7 @@ by Aleksandar Todorovic & Nemanja Zaric
  */
 
 #include "MotorControl.h"
+#include "SpeedControl.h"
 
 void inicijalizuj_motore()					//inicijalizacija motora
 {
@@ -21,6 +22,7 @@ void inicijalizuj_motore()					//inicijalizacija motora
 }
 
 void vozi_napred(uint8_t brzina){			//kretanje pravolinijski napred nazad levo desno :)
+  resetuj_prethodna_vremena();
   zaustavi();
   digitalWrite(MOTOR_NS_L_DIR, DIR_CW);
   digitalWrite(MOTOR_NS_R_DIR, DIR_CCW);
@@ -28,6 +30,7 @@ void vozi_napred(uint8_t brzina){			//kretanje pravolinijski napred nazad levo d
   analogWrite(MOTOR_NS_R_PWM, brzina);
 }
 void vozi_nazad(uint8_t brzina){
+  resetuj_prethodna_vremena();
   zaustavi();
   digitalWrite(MOTOR_NS_L_DIR, DIR_CCW);
   digitalWrite(MOTOR_NS_R_DIR, DIR_CW);
@@ -35,6 +38,7 @@ void vozi_nazad(uint8_t brzina){
   analogWrite(MOTOR_NS_R_PWM, brzina);
 }
 void vozi_levo(uint8_t brzina){
+  resetuj_prethodna_vremena();
   zaustavi();
   digitalWrite(MOTOR_EW_L_DIR, DIR_CW);
   digitalWrite(MOTOR_EW_R_DIR, DIR_CCW);
@@ -42,6 +46,7 @@ void vozi_levo(uint8_t brzina){
   analogWrite(MOTOR_EW_R_PWM, brzina);
 }
 void vozi_desno(uint8_t brzina){
+  resetuj_prethodna_vremena();
   zaustavi();
   digitalWrite(MOTOR_EW_L_DIR, DIR_CCW);
   digitalWrite(MOTOR_EW_R_DIR, DIR_CW);
@@ -49,6 +54,7 @@ void vozi_desno(uint8_t brzina){
   analogWrite(MOTOR_EW_R_PWM, brzina);
 }
 void rotiraj(boolean dir, uint8_t brzina){		//rotira ulevo ili udesno na osnovu promenljive dir oko centra robota
+  resetuj_prethodna_vremena();
   zaustavi();
 	if (dir)									//trebalo bi da naravimo da se rotira za odredjeni broj stepeni
 	{
@@ -65,6 +71,7 @@ void rotiraj(boolean dir, uint8_t brzina){		//rotira ulevo ili udesno na osnovu 
 	stavi_brzinu_na_sve(brzina);
 }
 void vozi_dijagonalno_SE(uint8_t brzina){		//dijagonalan pravac jug-istok
+  resetuj_prethodna_vremena();
   zaustavi();
 	digitalWrite(MOTOR_NS_L_DIR, DIR_CCW);
   	digitalWrite(MOTOR_NS_R_DIR, DIR_CW);
@@ -73,6 +80,7 @@ void vozi_dijagonalno_SE(uint8_t brzina){		//dijagonalan pravac jug-istok
   	stavi_brzinu_na_sve(brzina);
 }
 void vozi_dijagonalno_NE(uint8_t brzina){		//dijagonalan pravac sever-istok
+  resetuj_prethodna_vremena();
   zaustavi();
 	digitalWrite(MOTOR_NS_L_DIR, DIR_CW);
   	digitalWrite(MOTOR_NS_R_DIR, DIR_CCW);
@@ -81,6 +89,7 @@ void vozi_dijagonalno_NE(uint8_t brzina){		//dijagonalan pravac sever-istok
   	stavi_brzinu_na_sve(brzina);
 }
 void vozi_dijagonalno_SW(uint8_t brzina){		//dijagonalan pravac jug-zapad
+  resetuj_prethodna_vremena();
   zaustavi();
 	digitalWrite(MOTOR_NS_L_DIR, DIR_CCW);
   	digitalWrite(MOTOR_NS_R_DIR, DIR_CCW);
@@ -89,6 +98,7 @@ void vozi_dijagonalno_SW(uint8_t brzina){		//dijagonalan pravac jug-zapad
   	stavi_brzinu_na_sve(brzina);
 }
 void vozi_dijagonalno_NW(uint8_t brzina){		//dijagonalan pravac sever-zapad
+  resetuj_prethodna_vremena();
   zaustavi();
 	digitalWrite(MOTOR_NS_L_DIR, DIR_CW);
   	digitalWrite(MOTOR_NS_R_DIR, DIR_CW);

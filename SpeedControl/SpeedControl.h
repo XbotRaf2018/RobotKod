@@ -23,11 +23,21 @@ extern long enkoder_NS_R;
 extern long enkoder_EW_L;
 extern long enkoder_EW_R;
 
-void inicijalizuj_sve_pinove();
+extern long speed_NS_L;
+extern long speed_NS_R;
+extern long speed_EW_L;
+extern long speed_EW_R;
+
 void racunaj_brzine();
+void resetuj_prethodna_vremena();
+void citaj_sve_enkodere();
 void citaj_enkoder_NS_L();
 void citaj_enkoder_NS_R();
 void citaj_enkoder_EW_L();
 void citaj_enkoder_EW_R();
+void racunaj_brzinu_NS_L();
+void racunaj_brzinu_NS_R();
+void racunaj_brzinu_EW_L();
+void racunaj_brzinu_EW_R();
 
 #endif
