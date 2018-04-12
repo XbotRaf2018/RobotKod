@@ -10,43 +10,43 @@ by Nemanja Zaric
 boolean debug = 0;                //ako se setuje na serijskom portu ce se ispisivati brzina motora i pwm koji zelimo da setujemo
 
                                   //slede promenljive za svaki motor posebno
-unsigned long tren_v_0 = 0;       //trenutna brzina motora 0 ili MOTOR_NS_L
-unsigned long pre_v_0 = 0;        //prethodna brzina
+float tren_v_0 = 0;               //trenutna brzina motora 0 ili MOTOR_NS_L
+float pre_v_0 = 0;                //prethodna brzina
 int integral_0 = 0;               //integralni deo greske
 int derivative_0 = 0;             //izvodni deo greske
 int propo_0 = 0;                  //proporcionalni deo greske
-unsigned long greska_0 = 0;       //greska u odnosu na setpoint
-unsigned long pre_greska_0 = 0;   //prethodna greska
+float greska_0 = 0;               //greska u odnosu na setpoint
+float pre_greska_0 = 0;           //prethodna greska
 int pwm_set_0 = 0;                //pwm koji treba setovati
 
-unsigned long tren_v_1 = 0;
-unsigned long pre_v_1 = 0;
+float tren_v_1 = 0;
+float pre_v_1 = 0;
 int integral_1 = 0;
 int derivative_1 = 0;
 int propo_1 = 0;
-unsigned long greska_1 = 0;
-unsigned long pre_greska_1 = 0;
+float greska_1 = 0;
+float pre_greska_1 = 0;
 int pwm_set_1 = 0;
 
-unsigned long tren_v_2 = 0;
-unsigned long pre_v_2 = 0;
+float tren_v_2 = 0;
+float pre_v_2 = 0;
 int integral_2 = 0;
 int derivative_2 = 0;
 int propo_2 = 0;
-unsigned long greska_2 = 0;
-unsigned long pre_greska_2 = 0;
+float greska_2 = 0;
+float pre_greska_2 = 0;
 int pwm_set_2 = 0;
 
-unsigned long tren_v_3 = 0;
-unsigned long pre_v_3 = 0;
+float tren_v_3 = 0;
+float pre_v_3 = 0;
 int integral_3 = 0;
 int derivative_3 = 0;
 int propo_3 = 0;
-unsigned long greska_3 = 0;
-unsigned long pre_greska_3 = 0;
+float greska_3 = 0;
+float pre_greska_3 = 0;
 int pwm_set_3 = 0;
 
-int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){   //pid za brzinu za svaki motor ponaosob, mora da se nasteluju kp,kd i ki
+int pid_const_v_0(float setpoint_v,float kp,float kd,float ki){   //pid za brzinu za svaki motor ponaosob, mora da se nasteluju kp,kd i ki
   greska_0=setpoint_v-tren_v_0;
   propo_0=greska_0;
   integral_0+=greska_0;
@@ -77,7 +77,7 @@ int pid_const_v_0(int setpoint_v,float kp,float kd,float ki){   //pid za brzinu 
   return pwm_set_0;
 }
 
-int pid_const_v_1(int setpoint_v,float kp,float kd,float ki){
+int pid_const_v_1(float setpoint_v,float kp,float kd,float ki){
 
   greska_1=setpoint_v-tren_v_1;
   propo_1=greska_1;
@@ -109,7 +109,7 @@ int pid_const_v_1(int setpoint_v,float kp,float kd,float ki){
   return pwm_set_1;
 }
 
-int pid_const_v_2(int setpoint_v,float kp,float kd,float ki){
+int pid_const_v_2(float setpoint_v,float kp,float kd,float ki){
 
   greska_2=setpoint_v-tren_v_2;
   propo_2=greska_2;
@@ -141,7 +141,7 @@ int pid_const_v_2(int setpoint_v,float kp,float kd,float ki){
   return pwm_set_2;
 }
 
-int pid_const_v_3(int setpoint_v,float kp,float kd,float ki){
+int pid_const_v_3(float setpoint_v,float kp,float kd,float ki){
 
   greska_3=setpoint_v-tren_v_3;
   propo_3=greska_3;
