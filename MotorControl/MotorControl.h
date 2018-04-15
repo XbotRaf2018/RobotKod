@@ -29,6 +29,7 @@ by Aleksandar Todorovic & Nemanja Zaric
 #define DIR_CCW 1
 
 void inicijalizuj_motore();
+void vozi_nkoraka_napred(uint8_t brzina,long koraka);
 void vozi_napred(uint8_t brzina);
 void vozi_nazad(uint8_t brzina);
 void vozi_levo(uint8_t brzina);
