@@ -53,7 +53,6 @@ void racunaj_brzinu_NS_L(){
     	ns_L_pre_millis=millis();
 
     	if(debug_speed){
-        Serial.print(" speed_NS_L: ");
     		Serial.println(speed_NS_L);
     	}
   	}
@@ -74,7 +73,6 @@ void racunaj_brzinu_NS_R(){
     	ns_L_pre_millis=millis();
 
     	if(debug_speed){
-        Serial.print(" speed_NS_R: ");
     		Serial.println(speed_NS_R);
     	}
   	}
@@ -95,7 +93,6 @@ void racunaj_brzinu_EW_L(){
     	ns_L_pre_millis=millis();
 
     	if(debug_speed){
-        Serial.print(" speed_EW_L: ");
     		Serial.println(speed_EW_L);
     	}
   	}
@@ -116,7 +113,6 @@ void racunaj_brzinu_EW_R(){
     	ns_L_pre_millis=millis();
 
     	if(debug_speed){
-        Serial.print(" speed_EW_R: ");
     		Serial.println(speed_EW_R);
     	}
   	}
