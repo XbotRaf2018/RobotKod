@@ -1,0 +1,631 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Mo",
+				"MOTOR_NS_L_DIR"
+			],
+			[
+				"in",
+				"integral_0"
+			],
+			[
+				"pro",
+				"propo_0"
+			],
+			[
+				"gre",
+				"greska_0"
+			],
+			[
+				"st",
+				"stavi_brzinu_na_sve"
+			],
+			[
+				"inc",
+				"inc\t#include \"…\""
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"moto",
+				"MOTOR_NS_L"
+			],
+			[
+				"vo",
+				"vozi_motor_cw"
+			],
+			[
+				"tre",
+				"tren_p"
+			],
+			[
+				"pre",
+				"pre_p"
+			],
+			[
+				"tren",
+				"tren_v"
+			],
+			[
+				"p",
+				"pwm_set"
+			],
+			[
+				"n",
+				"naziv_pre"
+			],
+			[
+				"vc",
+				"vc2"
+			],
+			[
+				"pr",
+				"prefiks"
+			],
+			[
+				"_",
+				"_prefiks"
+			],
+			[
+				"ta",
+				"tabela_prefiksa"
+			],
+			[
+				"te",
+				"tabela_prefiksa"
+			],
+			[
+				"ime",
+				"ime_prefiksa"
+			],
+			[
+				"t",
+				"try\tTry/Except"
+			],
+			[
+				"for",
+				"format_knjige"
+			],
+			[
+				"spli",
+				"split"
+			],
+			[
+				"o",
+				"otpustanjeVreme"
+			],
+			[
+				"d",
+				"dolaznoVreme"
+			],
+			[
+				"pri",
+				"println"
+			],
+			[
+				"ma",
+				"matricaPrethodjenja"
+			],
+			[
+				"do",
+				"dolazno"
+			],
+			[
+				"MA",
+				"MAX_TASKOVA"
+			],
+			[
+				"str",
+				"strlen"
+			],
+			[
+				"be",
+				"beginTransmission"
+			],
+			[
+				"slo",
+				"slobodni"
+			],
+			[
+				"za",
+				"zad_slejv"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "testPidaIMotorkontrola.ino",
+			"settings":
+			{
+				"buffer_size": 698,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/cvajblumen/Arduino/libraries/MotorControl/MotorControl.cpp",
+			"settings":
+			{
+				"buffer_size": 3602,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/cvajblumen/Arduino/libraries/MotorControl/MotorControl.h",
+			"settings":
+			{
+				"buffer_size": 1130,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/cvajblumen/Arduino/libraries/PidLib/pid_lib.cpp",
+			"settings":
+			{
+				"buffer_size": 4201,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/cvajblumen/Arduino/libraries/PidLib/pid_lib.h",
+			"settings":
+			{
+				"buffer_size": 703,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 190.0,
+		"last_filter": "Package Control: in",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: is",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 515.0
+	},
+	"console":
+	{
+		"height": 143.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/RobotKod/Pid lib/pid_lib.h",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/RobotKod/MovementController/MotorControl.cpp",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/RobotKod/Pid lib/pid_lib.cpp",
+		"/home/cvajblumen/Arduino/libraries/PidLib/pid_lib.cpp",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/RobotKod/MovementController/MotorControl.h",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/RobotKod/MovementController/MovementController.ino",
+		"/home/cvajblumen/Desktop/MovementController/pid_lib.cpp",
+		"/home/cvajblumen/Arduino/libraries/PidLib/pid_lib.h",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/RobotKod/Pid lib/pid_test0.ino",
+		"/home/cvajblumen/.config/sublime-text-3/Packages/Anaconda/Default (Linux).sublime-keymap",
+		"/home/cvajblumen/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/pid_test0/pid_lib.h",
+		"/home/cvajblumen/Gdrive/programiranje/PatB robot kod/pid_test0/pid_lib.cpp",
+		"/home/cvajblumen/Gdrive/programiranje/ts.py",
+		"/home/cvajblumen/Downloads/cv_robot_v2.pde",
+		"/home/cvajblumen/Documents/skript projekat/fajlovi/prefiksi_ispravljeno.txt",
+		"/home/cvajblumen/Documents/skript projekat/popravi prefikse.py",
+		"/home/cvajblumen/Documents/skript projekat/fajlovi/prefiksi.txt",
+		"/home/cvajblumen/Documents/skript projekat/baza_prefiksi.py",
+		"/home/cvajblumen/Documents/skript projekat/skript_projekat_baza.py",
+		"/home/cvajblumen/Documents/skript projekat/fajlovi/knjige.txt",
+		"/home/cvajblumen/Documents/skript priprema/resenje 1/sk2/style.css",
+		"/home/cvajblumen/Documents/skript priprema/resenje 1/sk2/init.php",
+		"/home/cvajblumen/Documents/skript priprema/resenje 1/sk2/index.php",
+		"/home/cvajblumen/Documents/skript priprema/resenje 1/sk2/dashboard.php",
+		"/home/cvajblumen/Documents/skript priprema/resenje 1/sk2/baza.php",
+		"/home/cvajblumen/Documents/Srv_domaci_3/Srv_domaci_3.ino",
+		"/home/cvajblumen/Arduino/libraries/FreeRTOS/src/task.h",
+		"/home/cvajblumen/Arduino/libraries/FreeRTOS/src/tasks.c",
+		"/home/cvajblumen/Arduino/libraries/FreeRTOS/src/Arduino_FreeRTOS.h",
+		"/sys/power/image_size",
+		"/home/cvajblumen/Drive1/programiranje/arduino/Srv_domaci_2_master/Srv_domaci_2_master.ino",
+		"/home/cvajblumen/Documents/bla.c",
+		"/home/cvajblumen/Drive1/programiranje/arduino/Srv_domaci_2_slave/Srv_domaci_2_slave.ino",
+		"/home/cvajblumen/Drive/programiranje/arduino/Srv_domaci_2_slave/Srv_domaci_2_slave.ino",
+		"/home/cvajblumen/programiranje/skript_projekat.py",
+		"/home/cvajblumen/Drive/programiranje/arduino/Srv_domaci_2_master/Srv_domaci_2_master.ino",
+		"/home/cvajblumen/Documents/Srv_domaci_2_slave/Srv_domaci_2_slave.ino",
+		"/home/cvajblumen/Documents/Srv_domaci_2_master/Srv_domaci_2_master.ino"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"zaustavi",
+			"'",
+			"255",
+			"pwm_set_0",
+			"pwm_set",
+			"greska",
+			"propo",
+			"derivative",
+			"integral",
+			"pre_v",
+			"tren_v",
+			",",
+			"605",
+			"600",
+			"startsche",
+			"task",
+			"taskcreate",
+			"createtask",
+			"vTaskSta",
+			"xPortStartScheduler",
+			"scheduler",
+			"taskcreate",
+			"switchcon",
+			"selecthighest",
+			"vtaskswitchco"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "testPidaIMotorkontrola.ino",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 698,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								183,
+								183
+							]
+						],
+						"settings":
+						{
+							"SL.14.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/cvajblumen/Arduino/libraries/MotorControl/MotorControl.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3213,
+								3213
+							]
+						],
+						"settings":
+						{
+							"SL.15.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1233.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/cvajblumen/Arduino/libraries/MotorControl/MotorControl.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1130,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.16.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/cvajblumen/Arduino/libraries/PidLib/pid_lib.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4201,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2002,
+								1785
+							]
+						],
+						"settings":
+						{
+							"SL.17.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/cvajblumen/Arduino/libraries/PidLib/pid_lib.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.18.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 114.0
+	},
+	"output.exec":
+	{
+		"height": 114.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Processing/Build Systems/Processing.sublime-build",
+	"project": "testvoznjeproj.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/Sublime projects/skr_kol2_nemanja_zaric_rm_77_15.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

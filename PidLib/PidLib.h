@@ -17,6 +17,9 @@ by Nemanja Zaric
 
 #define MAX_PWM 255			//maksimalna vrednost pwm-a koju zelimo
 
+extern int tren_v_0;
+extern int tren_v_1;
+
 int pid_const_v_0(int setpoint_v,float kp,float kd,float ki);
 int pid_const_v_1(int setpoint_v,float kp,float kd,float ki);
 int pid_const_v_2(int setpoint_v,float kp,float kd,float ki);
