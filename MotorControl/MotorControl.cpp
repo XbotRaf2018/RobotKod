@@ -93,8 +93,8 @@ void pid_napred_nazad(uint8_t brzina){
 void vozi_napred(uint8_t brzina){			//kretanje pravolinijski napred nazad levo desno :)
   resetuj_prethodna_vremena();
   zaustavi();
-  digitalWrite(MOTOR_NS_L_DIR, DIR_CW);
-  digitalWrite(MOTOR_NS_R_DIR, DIR_CCW);
+  digitalWrite(MOTOR_NS_L_DIR, DIR_CCW);
+  digitalWrite(MOTOR_NS_R_DIR, DIR_CW);
   analogWrite(MOTOR_NS_L_PWM, brzina);
   analogWrite(MOTOR_NS_R_PWM, brzina);
 }
