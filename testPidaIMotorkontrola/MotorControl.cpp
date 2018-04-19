@@ -12,14 +12,14 @@
 boolean debug_motor = false;
 
 float kp0 = 100;
-float kp1 = 100;
-float kp2 = 0;
-float kp3 = 0;
+float kp1 = 95;
+float kp2 = 100;
+float kp3 = 100;
 
-float kd0 = 0;
-float kd1 = 0;
-float kd2 = 0;
-float kd3 = 0;
+float kd0 = 20;
+float kd1 = 20;
+float kd2 = 20;
+float kd3 = 20;
 
 float ki0 = 0;
 float ki1 = 0;
@@ -41,56 +41,94 @@ void inicijalizuj_motore()					//inicijalizacija motora
 
 void vozi_nkoraka_napred(uint8_t brzina, long koraka) {    //kretanje pravolinijski napred nazad levo desno za odredjeni broj pulseva enkodera :)
   //nisam siguran kako ce da radi, moram da testiram, pa cu da ubacim i pid za brzinu
-  koraka *= 2652;
   resetuj_prethodna_vremena();
   zaustavi();
 
   citaj_enkoder_NS_L();
+  citaj_enkoder_NS_R();
+
   int brz0 = brzina * kp0;
   int brz1 = brzina * kp1;
+
   digitalWrite(MOTOR_NS_L_DIR, DIR_CCW);
-  //digitalWrite(MOTOR_NS_R_DIR, DIR_CCW);
-  analogWrite(MOTOR_NS_L_PWM, brz0);
-  //analogWrite(MOTOR_NS_R_PWM, brz1);
-  long newPosition = get_new_pos_NS_L();
-  long oldPos = newPosition;
+  digitalWrite(MOTOR_NS_R_DIR, DIR_CW);
+
+  long newPosition0 = get_new_pos_NS_L();
+  long oldPos0 = newPosition0;
+
+
+  long newPosition1 = get_new_pos_NS_R();
+  long oldPos1 = newPosition1;
 
   Serial.print(" newPosition: ");
-  Serial.print(newPosition);
+  Serial.print(newPosition0);
   Serial.print(" enkoder_NS_L_old: ");
-  Serial.print(oldPos);
+  Serial.print(oldPos0);
   Serial.print(" delta position= ");
-  Serial.println(abs(newPosition - oldPos));
+  Serial.println(abs(newPosition0 - oldPos0));
   //if (newPosition != enkoder_NS_L_old) {
   unsigned long timer = millis();
   int sample_time = 20;
-  while (abs(newPosition - oldPos) <= koraka) {
-    if (millis() - timer >= sample_time) {
-      timer = millis();
-      tren_v_0 = racunaj_brzinu_NS_L();
-      //tren_v_1 = racunaj_brzinu_NS_R();
+  float current_speed = 0;
+  long currPos = 0;
+  while (abs(newPosition0 - oldPos0) <= koraka) {
+    if ((millis() - timer) >= sample_time) {
+      currPos = abs(newPosition0 - oldPos0);
+      current_speed = ((float)(currPos - 0)) * (brzina - 1) / (koraka / 3 - 0) + 1;
 
-      brz0 = pid_const_v_0(brzina, kp0, kd0, ki0);
-      //brz1 = pid_const_v_1(brzina,kp1,kd1,ki1);
+      if ((float)currPos / koraka > 0.7) {
+        current_speed = brzina -  ((float)(currPos - 0.7 * koraka)) * (brzina - 0) / (koraka - 0.7 * koraka) + 1;
+
+        //        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      }
+
+      if (current_speed > brzina) current_speed = brzina;
+      Serial.print("Current speed ");
+      Serial.println(current_speed);
+
+
+
+      timer = millis();
+
+      tren_v_0 = racunaj_brzinu_NS_L();
+      tren_v_1 = racunaj_brzinu_NS_R();
+
+      brz0 = pid_const_v_0(current_speed, kp0, kd0, ki0);
+      brz1 = pid_const_v_1(current_speed, kp1, kd1, ki1);
+
+      Serial.print("Brz 0 - ");
+      Serial.println(brz0);
+
+      Serial.print("Brz 1 - ");
+      Serial.println(brz1);
+
       analogWrite(MOTOR_NS_L_PWM, brz0);
-      //analogWrite(MOTOR_NS_R_PWM, brz1);
+      analogWrite(MOTOR_NS_R_PWM, brz1);
 
       if (debug_motor)
       {
         Serial.print(" Debug MotorControl -- ");
         Serial.print(" newPosition: ");
-        Serial.print(newPosition);
+        Serial.print(newPosition0);
         Serial.print(" enkoder_NS_L_old: ");
-        Serial.print(oldPos);
+        Serial.print(oldPos0);
         Serial.print(" delta position= ");
-        Serial.println(abs(newPosition - oldPos));
+        Serial.println(abs(newPosition0 - oldPos0));
       }
 
-      newPosition = get_new_pos_NS_L();
+      newPosition0 = get_new_pos_NS_L();
+      newPosition1 = get_new_pos_NS_R();
     }
   }
   zaustavi();
 }
+
+void vozi_cm_napred(uint8_t brzina, long cm) {
+  int cm_u_korake = cm * (float)KORAKA_U_KRUGU / OBIM_TOCKA;
+  Serial.println(cm_u_korake);
+  vozi_nkoraka_napred(brzina, cm_u_korake);
+}
+
 
 void pid_napred_nazad(uint8_t brzina) {
   int nova_brz0 = pid_const_v_0(brzina, kp0, kd0, ki0);
@@ -197,4 +235,93 @@ void zaustavi() {								//trebalo bi da vidimo kocenje kako cemo
   digitalWrite(MOTOR_EW_L_DIR, 0);
   digitalWrite(MOTOR_NS_R_DIR, 0);
   digitalWrite(MOTOR_EW_R_DIR, 0);
+}
+
+void rotiraj_nkoraka(uint8_t brzina, int koraka, int direction) {
+  resetuj_prethodna_vremena();
+  zaustavi();
+  citaj_enkoder_NS_L();
+  citaj_enkoder_NS_R();
+  citaj_enkoder_EW_L();
+  citaj_enkoder_EW_R();
+
+
+  int brz0 = brzina * kp0;
+  int brz1 = brzina * kp1;
+  int brz2 = brzina * kp2;
+  int brz3 = brzina * kp3;
+  int dir = DIR_CW;
+  if (direction) {
+    dir = DIR_CCW;
+  }
+
+  digitalWrite(MOTOR_NS_L_DIR, dir);
+  digitalWrite(MOTOR_NS_R_DIR, dir);
+  digitalWrite(MOTOR_EW_L_DIR, dir);
+  digitalWrite(MOTOR_EW_R_DIR, dir);
+
+  long newPosition = get_new_pos_NS_L();
+
+  long oldPos = newPosition;
+
+  if (debug_motor) {
+    Serial.print(" newPosition: ");
+    Serial.print(newPosition);
+    Serial.print(" enkoder_NS_L_old: ");
+    Serial.print(oldPos);
+    Serial.print(" delta position= ");
+    Serial.println(abs(newPosition - oldPos));
+  }
+
+  unsigned long timer = millis();
+  int sample_time = 20;
+
+
+  float current_speed = 0;
+  long currPos = 0;
+
+  while (abs(newPosition - oldPos) <= koraka) {
+
+    currPos = abs(newPosition - oldPos);
+    current_speed = ((float)(currPos - 0)) * (brzina - 1) / (koraka / 2 - 0) + 1;
+    if (current_speed > brzina) current_speed = brzina;
+
+    if ((float)currPos / koraka > 0.6) {
+      current_speed = brzina -  ((float)(currPos - 0.6 * koraka)) * (brzina - 0) / (koraka - 0.6 * koraka) + 1;
+
+      //        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
+
+    if (millis() - timer >= sample_time) {
+
+      timer = millis();
+
+      tren_v_0 = racunaj_brzinu_NS_L();
+      tren_v_1 = racunaj_brzinu_NS_R();
+      tren_v_2 = racunaj_brzinu_EW_L();
+      tren_v_3 = racunaj_brzinu_EW_R();
+      brz0 = pid_const_v_0(current_speed, kp0, kd0, ki0);
+      brz1 = pid_const_v_1(current_speed, kp1, kd1, ki1);
+      brz2 = pid_const_v_2(current_speed, kp2, kd2, ki2);
+      brz3 = pid_const_v_3(current_speed, kp3, kd3, ki3);
+      analogWrite(MOTOR_NS_L_PWM, brz0);
+      analogWrite(MOTOR_NS_R_PWM, brz1);
+      analogWrite(MOTOR_EW_L_PWM, brz2);
+      analogWrite(MOTOR_EW_R_PWM, brz3);
+
+      if (debug_motor)
+      {
+        Serial.print(" Debug MotorControl -- ");
+        Serial.print(" newPosition: ");
+        Serial.print(newPosition);
+        Serial.print(" enkoder_NS_L_old: ");
+        Serial.print(oldPos);
+        Serial.print(" delta position= ");
+        Serial.println(abs(newPosition - oldPos));
+      }
+
+      newPosition = get_new_pos_NS_L();
+    }
+  }
+  zaustavi();
 }

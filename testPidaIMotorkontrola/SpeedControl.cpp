@@ -14,10 +14,10 @@ Encoder *NS_R;
 Encoder *EW_L;
 Encoder *EW_R;
 
-long enkoder_NS_L_old = -999;
-long enkoder_NS_R_old = -999;
-long enkoder_EW_L_old = -999;
-long enkoder_EW_R_old = -999;
+long enkoder_NS_L_old = 0;
+long enkoder_NS_R_old = 0;
+long enkoder_EW_L_old = 0;
+long enkoder_EW_R_old = 0;
 
 unsigned long ns_L_pre_millis = 0;
 unsigned long ns_R_pre_millis = 0;
@@ -51,7 +51,7 @@ float racunaj_brzinu_NS_L(){
 
 	long newPosition = NS_L->read();
 
-  	if (newPosition != enkoder_NS_L_old) {
+  	//if (newPosition != enkoder_NS_L_old) {
 
   		float delta_pos = abs(enkoder_NS_L_old - newPosition);
   		unsigned long delta_millis = millis() - ns_L_pre_millis;
@@ -65,7 +65,8 @@ float racunaj_brzinu_NS_L(){
         Serial.print(" speed_NS_L: ");
     		Serial.println(speed_NS_L);
     	}
-  	}
+  	//}
+   
     return speed_NS_L;
 }
 
@@ -73,65 +74,67 @@ float racunaj_brzinu_NS_R(){
 
 	long newPosition = NS_R->read();
 
-  	if (newPosition != enkoder_NS_R_old) {
+  	//if (newPosition != enkoder_NS_R_old) {
 
-  		long delta_pos = enkoder_NS_R_old - newPosition;
+  		float delta_pos = abs(enkoder_NS_R_old - newPosition);
   		unsigned long delta_millis = millis() - ns_R_pre_millis;
   		speed_NS_R = delta_pos/delta_millis;
 
     	enkoder_NS_R_old = newPosition;
-    	ns_L_pre_millis=millis();
+    	ns_R_pre_millis=millis();
 
     	if(debug_speed){
         Serial.print(" Debug SpeedControl -- ");
         Serial.print(" speed_NS_R: ");
     		Serial.println(speed_NS_R);
     	}
-  	}
+  	//}
+   Serial.print("Speed_NS_R: ");
+   Serial.println(speed_NS_R);
     return speed_NS_R;
 }
 
-void racunaj_brzinu_EW_L(){
+float racunaj_brzinu_EW_L(){
 
 	long newPosition = EW_L->read();
 
-  	if (newPosition != enkoder_EW_L_old) {
+  	//if (newPosition != enkoder_EW_L_old) {
 
-  		long delta_pos = enkoder_EW_L_old - newPosition;
-  		unsigned long delta_millis = millis() - ew_L_pre_millis;
-  		speed_EW_L = delta_pos/delta_millis;
+  		
+      float delta_pos = abs(enkoder_EW_L_old - newPosition);
+      unsigned long delta_millis = millis() - ew_L_pre_millis;
+      speed_EW_L = delta_pos/delta_millis;
 
-    	enkoder_EW_L_old = newPosition;
-    	ns_L_pre_millis=millis();
+      enkoder_EW_L_old = newPosition;
+      ew_L_pre_millis=millis();
 
-    	if(debug_speed){
+      if(debug_speed){
         Serial.print(" Debug SpeedControl -- ");
         Serial.print(" speed_EW_L: ");
-    		Serial.println(speed_EW_L);
-    	}
-  	}
+        Serial.println(speed_EW_L);
+      }
+    	
+  	//}
 
 }
 
-void racunaj_brzinu_EW_R(){
+float racunaj_brzinu_EW_R(){
 
 	long newPosition = EW_R->read();
 
-  	if (newPosition != enkoder_EW_R_old) {
+  	
+      float delta_pos = abs(enkoder_EW_R_old - newPosition);
+      unsigned long delta_millis = millis() - ew_R_pre_millis;
+      speed_EW_R = delta_pos/delta_millis;
 
-  		long delta_pos = enkoder_EW_R_old - newPosition;
-  		unsigned long delta_millis = millis() - ew_R_pre_millis;
-  		speed_EW_R = delta_pos/delta_millis;
+      enkoder_EW_R_old = newPosition;
+      ew_R_pre_millis=millis();
 
-    	enkoder_EW_R_old = newPosition;
-    	ns_L_pre_millis=millis();
-
-    	if(debug_speed){
+      if(debug_speed){
         Serial.print(" Debug SpeedControl -- ");
         Serial.print(" speed_EW_R: ");
-    		Serial.println(speed_EW_R);
-    	}
-  	}
+        Serial.println(speed_EW_R);
+      }
 
 }
 

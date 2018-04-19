@@ -43,7 +43,7 @@ void citaj_enkoder_EW_L();
 void citaj_enkoder_EW_R();
 float racunaj_brzinu_NS_L();
 float racunaj_brzinu_NS_R();
-void racunaj_brzinu_EW_L();
-void racunaj_brzinu_EW_R();
+float racunaj_brzinu_EW_L();
+float racunaj_brzinu_EW_R();
 
 #endif

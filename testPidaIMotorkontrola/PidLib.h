@@ -19,10 +19,12 @@ by Nemanja Zaric
 
 extern float tren_v_0;
 extern float tren_v_1;
+extern float tren_v_2;
+extern float tren_v_3;
 
-int pid_const_v_0(int setpoint_v,float kp,float kd,float ki);
-int pid_const_v_1(int setpoint_v,float kp,float kd,float ki);
-int pid_const_v_2(int setpoint_v,float kp,float kd,float ki);
-int pid_const_v_3(int setpoint_v,float kp,float kd,float ki);
+int pid_const_v_0(float setpoint_v,float kp,float kd,float ki);
+int pid_const_v_1(float setpoint_v,float kp,float kd,float ki);
+int pid_const_v_2(float setpoint_v,float kp,float kd,float ki);
+int pid_const_v_3(float setpoint_v,float kp,float kd,float ki);
 
 #endif

@@ -28,7 +28,11 @@ by Aleksandar Todorovic & Nemanja Zaric
 #define DIR_CW 0							//smer okretanja motora 0-u smeru kazaljke na satu, 1-suprotno od smera kazaljke na satu
 #define DIR_CCW 1
 
+#define OBIM_TOCKA 18.84
+#define KORAKA_U_KRUGU 2652.0
+
 void inicijalizuj_motore();
+void vozi_cm_napred(uint8_t brzina, long cm);
 void vozi_nkoraka_napred(uint8_t brzina,long koraka);
 void vozi_napred(uint8_t brzina);
 void vozi_nazad(uint8_t brzina);
@@ -41,6 +45,7 @@ void vozi_dijagonalno_NW(uint8_t brzina);
 void rotiraj(boolean dir);
 void stavi_brzinu_na_sve(uint8_t brzina);
 void zaustavi();
+void rotiraj_nkoraka(uint8_t brzina, int koraka, int direction);
 
 #endif //MOTOR_CONTROL_H
 
