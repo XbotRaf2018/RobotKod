@@ -30,40 +30,44 @@ void uzmi_daljine(){
   while(Wire.available()){
 
     byte b = Wire.read();
-    //Serial.println(b);
+    Serial.println(b);
     daljine[i++]=b;
 
   }
 
 }
 
-void posalji_zaustavi(){
+void posalji_zaustavi(byte n){
   Wire.beginTransmission(adrese[1]);
   Wire.write('z');
   Wire.endTransmission();
 }
 
-void posalji_napred(){
+void posalji_napred(byte n){
   Wire.beginTransmission(adrese[1]);
   Wire.write('s');
+  Wire.write(n);
   Wire.endTransmission();
 }
 
-void posalji_nazad(){
+void posalji_nazad(byte n){
   Wire.beginTransmission(adrese[1]);
   Wire.write('b');
+  Wire.write(n);
   Wire.endTransmission();
 }
 
-void posalji_levo(){
+void posalji_levo(byte n){
   Wire.beginTransmission(adrese[1]);
   Wire.write('l');
+  Wire.write(n);
   Wire.endTransmission();
 }
 
-void posalji_desno(){
+void posalji_desno(byte n){
   Wire.beginTransmission(adrese[1]);
   Wire.write('d');
+  Wire.write(n);
   Wire.endTransmission();
 }
 
@@ -82,7 +86,7 @@ void proveri_dal_zavrsio(){
 
   delay(20);
 
-  Wire.requestFrom(adrese[1]);
+  //Wire.requestFrom(adrese[1],4);
 
   if(Wire.available()){
   	zavrsio = Wire.read();
@@ -99,19 +103,19 @@ int proveri_daljine(){
 	return 0;
 }
 
-void barataj_voznjom(){
+void barataj_voznjom(byte n){
 	if (millis() - premili2 >= d){
 		int p=proveri_daljine();
 		if(p){
 
 			char gde = redosled[p];
-			posalji_zaustavi();
+			posalji_zaustavi(n);
 
 			switch(gde){
-				case 'l' : posalji_desno(); break;
-				case 'r' : posalji_levo(); break;
-				case 'f' : posalji_nazad(); break;
-				case 'b' : posalji_napred(); break;
+				case 'r' : posalji_desno(n); break;
+				case 'l' : posalji_levo(n); break;
+				case 'f' : posalji_nazad(n); break;
+				case 'b' : posalji_napred(n); break;
 				default : Serial.println("Pogresan redosled :P"); break;
 			}
 		}
@@ -125,10 +129,15 @@ void setup(){
 }
 
 void loop(){
-
-  if (millis() - premili >= d)
-  {
-  	uzmi_daljine();
-  }
-  barataj_voznjom();
+  //if (millis() - premili >= d)
+  //{
+    //premili = millis();
+  //uzmi_daljine();
+  Wire.beginTransmission(adrese[1]);
+  Wire.write('s');
+  Wire.write((byte)100);
+  Wire.endTransmission();
+  //}
+  //barataj_voznjom(n);
+  delay(20000);
 }

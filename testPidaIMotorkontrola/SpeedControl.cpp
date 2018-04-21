@@ -89,8 +89,8 @@ float racunaj_brzinu_NS_R(){
     		Serial.println(speed_NS_R);
     	}
   	//}
-   Serial.print("Speed_NS_R: ");
-   Serial.println(speed_NS_R);
+//   Serial.print("Speed_NS_R: ");
+//   Serial.println(speed_NS_R);
     return speed_NS_R;
 }
 

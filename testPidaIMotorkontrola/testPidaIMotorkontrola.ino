@@ -1,31 +1,23 @@
 #include "MotorControl.h"
 #include "SpeedControl.h"
 #include <Encoder.h>
+#include <Wire.h>
 
 int d = 10;
 
 void setup() {
   // put your setup code here, to run once:
+  Wire.begin(10);
+  Wire.onReceive(receiveEvent);
   Serial.begin(9600);
   init();
   inicijalizuj_motore();
-  delay(5000);
 
 }
 
 void loop() {
-
-  vozi_cm_napred(5,100);
-  //rotiraj_nkoraka(3, 1.2* KORAKA_U_KRUGU, 1);
-  //plotMotor();
-  delay(5000);
-  //rotiraj_nkoraka(3, 1.34 * KORAKA_U_KRUGU, 0);
-  
+  //vozi_cm_napred(3,100);
   //delay(5000);
-  // vozi_napred(40);
-  //citaj_sve_enkodere();
-  //citaj_enkoder_NS_L();
-
 }
 
 void plotMotor() {
@@ -42,5 +34,21 @@ void plotMotor() {
     print_timer = millis();
     Serial.println(enc_new);
   }
+}
+
+void receiveEvent(int n) {
+
+  Serial.println("HELLO");
+  char cmd;
+  byte dist;
+  if (Wire.available()) {
+    cmd = Wire.read();
+    dist = Wire.read();
+    switch (cmd) {
+      case 's': vozi_cm_napred(3, 100); Serial.println(dist); break;
+    }
+  }
+
+
 }
 

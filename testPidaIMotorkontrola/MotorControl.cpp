@@ -12,7 +12,7 @@
 boolean debug_motor = false;
 
 float kp0 = 100;
-float kp1 = 95;
+float kp1 = 100;
 float kp2 = 100;
 float kp3 = 100;
 
@@ -83,8 +83,8 @@ void vozi_nkoraka_napred(uint8_t brzina, long koraka) {    //kretanje pravolinij
       }
 
       if (current_speed > brzina) current_speed = brzina;
-      Serial.print("Current speed ");
-      Serial.println(current_speed);
+//      Serial.print("Current speed ");
+//      Serial.println(current_speed);
 
 
 
@@ -96,11 +96,11 @@ void vozi_nkoraka_napred(uint8_t brzina, long koraka) {    //kretanje pravolinij
       brz0 = pid_const_v_0(current_speed, kp0, kd0, ki0);
       brz1 = pid_const_v_1(current_speed, kp1, kd1, ki1);
 
-      Serial.print("Brz 0 - ");
-      Serial.println(brz0);
-
-      Serial.print("Brz 1 - ");
-      Serial.println(brz1);
+//      Serial.print("Brz 0 - ");
+//      Serial.println(brz0);
+//
+//      Serial.print("Brz 1 - ");
+//      Serial.println(brz1);
 
       analogWrite(MOTOR_NS_L_PWM, brz0);
       analogWrite(MOTOR_NS_R_PWM, brz1);
